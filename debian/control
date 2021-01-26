@@ -1,0 +1,35 @@
+Source: prompt-toolkit
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Lennart Weller <lhw@ring0.de>, Gordon Ball <gordon@chronitis.net>
+Section: python
+Vcs-Git: https://salsa.debian.org/python-team/packages/prompt-toolkit.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/prompt-toolkit
+Priority: optional
+Homepage: https://github.com/prompt-toolkit/python-prompt-toolkit
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-asyncssh <!nocheck>,
+               python3-pytest <!nocheck>,
+               python3-setuptools,
+               python3-wcwidth,
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-python
+
+Package: python3-prompt-toolkit
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Breaks: aws-shell (<= 0.2.1-1~),
+        mycli (<< 1.19~),
+        pgcli (<< 2~),
+        python3-ipython (<< 7~),
+        python3-jupyter-console (<< 6~),
+        python3-softlayer (<< 5.8~)
+Recommends: python3-pygments
+Description: library for building interactive command lines (Python 3)
+ prompt_toolkit is a GNU readline replacement written in pure Python supporting
+ advanced features like syntax highlighting, multi line editing and code
+ completion.
+ .
+ This package installs the library for Python 3.

@@ -1,0 +1,2 @@
+Test-Command: env HOME=$AUTOPKGTEST_TMP pytest-3 tests
+Depends: @, python3-pytest

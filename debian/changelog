@@ -1,0 +1,214 @@
+prompt-toolkit (3.0.14-1) unstable; urgency=medium
+
+  * New upstream version 3.0.14
+  * d/watch: use github as upstream
+  * d/control: debhelper compat 13, mark test dependencies nocheck
+
+ -- Gordon Ball <gordon@chronitis.net>  Tue, 26 Jan 2021 18:47:10 +0000
+
+prompt-toolkit (3.0.10-1) unstable; urgency=medium
+
+  * New upstream version 3.0.10
+
+ -- Gordon Ball <gordon@chronitis.net>  Sun, 10 Jan 2021 17:34:55 +0000
+
+prompt-toolkit (3.0.9-1) unstable; urgency=medium
+
+  * New upstream version 3.0.9
+
+ -- Gordon Ball <gordon@chronitis.net>  Tue, 05 Jan 2021 19:20:22 +0000
+
+prompt-toolkit (3.0.8-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Gordon Ball ]
+  * New upstream version 3.0.8 (Closes: #970588)
+
+ -- Gordon Ball <gordon@chronitis.net>  Wed, 14 Oct 2020 19:38:58 +0000
+
+prompt-toolkit (3.0.7-1) unstable; urgency=medium
+
+  * New upstream version 3.0.7
+
+ -- Gordon Ball <gordon@chronitis.net>  Mon, 31 Aug 2020 15:15:02 +0000
+
+prompt-toolkit (3.0.6-1) unstable; urgency=medium
+
+  * New upstream version 3.0.6
+
+ -- Gordon Ball <gordon@chronitis.net>  Mon, 10 Aug 2020 18:54:34 +0000
+
+prompt-toolkit (3.0.5-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Gordon Ball <gordon@chronitis.net>  Mon, 04 May 2020 15:54:35 +0000
+
+prompt-toolkit (3.0.5-1) experimental; urgency=medium
+
+  [ Gordon Ball ]
+  * Correct URL to match in watchfile
+  * d/control: add (test) dependencies on asyncssh, pytest
+  * d/control: update Standards-Version to 4.5.0
+  * d/control: drop dependency on six
+  * Run the test-suite as an autopkgtest
+  * New upstream version 3.0.5
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Gordon Ball <gordon@chronitis.net>  Fri, 03 Apr 2020 07:12:44 +0000
+
+prompt-toolkit (2.0.10-2) unstable; urgency=medium
+
+  * Add versioned Breaks against: aws-shell, mycli, pgcli, python3-ipython,
+    python3-jupyter-console, python3-softlayer for versions requiring PTK 1.x
+  * Add myself to uploaders
+  * Complete prompt-toolkit 1 -> 2 transition (Closes: #944227)
+
+ -- Gordon Ball <gordon@chronitis.net>  Mon, 06 Jan 2020 13:53:05 +0000
+
+prompt-toolkit (2.0.10-1) experimental; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+  * d/watch: Use https protocol
+  * d/control: Remove ancient X-Python-Version field
+  * d/control: Remove ancient X-Python3-Version field
+  * Bump Standards-Version to 4.4.1.
+
+  [ Lennart Weller ]
+  * New upstream release (Closes: #914698)
+  * New debian Standards-Version 4.3.0
+
+  [ Scott Kitterman ]
+  * Remove myself from uploaders
+
+  [ Gordon Ball ]
+  * New upstream version 2.0.10
+  * Drop python2 support (Closes: #937326)
+  * Update homepage to github.com/prompt-toolkit/python-prompt-toolkit
+  * Update debhelper compat level to 12; drop d/compat
+  * Set Rules-Requires-Root: no
+  * Set Testsuite: autopkgtest-pkg-python
+
+ -- Gordon Ball <gordon@chronitis.net>  Fri, 01 Nov 2019 21:19:54 +0000
+
+prompt-toolkit (1.0.15-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump standards-version to 4.1.3 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 08 Jan 2018 16:43:40 -0500
+
+prompt-toolkit (1.0.14-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 18 Jun 2017 01:04:10 -0400
+
+prompt-toolkit (1.0.9-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 10 Nov 2016 20:51:06 -0500
+
+prompt-toolkit (1.0.8-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 30 Oct 2016 09:09:23 -0400
+
+prompt-toolkit (1.0.7-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 09 Sep 2016 00:32:11 -0400
+
+prompt-toolkit (1.0.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 24 Jun 2016 07:56:13 -0400
+
+prompt-toolkit (1.0.2-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 18 Jun 2016 18:46:46 -0400
+
+prompt-toolkit (1.0.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump standards version to without further change
+  * Drop python/python3-pygments from build-depends as they are no longer
+    required to build
+  * Add python/python3-pygments as recommends since they are optionally used
+    at runtime
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 23 May 2016 16:47:58 -0400
+
+prompt-toolkit (0.60-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed VCS URL (https)
+
+  [ Scott Kitterman ]
+  * New upstream release
+  * Bump standards version to 3.9.7
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 02 Apr 2016 22:03:22 -0400
+
+prompt-toolkit (0.57-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add backward compatibility stubs for renamed functions in
+    shortcuts.py
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 10 Jan 2016 04:17:11 -0500
+
+prompt-toolkit (0.53-1) unstable; urgency=low
+
+  [ Lennart Weller ]
+  * New upstream release
+
+  [ SVN-Git Migration ]
+  * Added git-dpm
+  * Update Vcs fields for git migration
+
+ -- Lennart Weller <lhw@ring0.de>  Sun, 11 Oct 2015 01:20:56 -0400
+
+prompt-toolkit (0.52-1) unstable; urgency=low
+
+  [ Lennart Weller ]
+  * New upstream release
+  * Remove Files-Excluded: prompt_toolkit/libs since it was dropped upstream
+  * Drop dversionmangle from debian/rules since a dfsg tarball is no longer
+    needed
+
+  [ Scott Kitterman ]
+  * Add python-pygments/python3-pygments, python-six/python3-six and python-
+    wcwidth/python3-wcidth to build-depends so tests can run in a clean build
+    environment
+  * Remove explicit module depends and let dh-python generate them
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 28 Sep 2015 12:50:55 -0400
+
+prompt-toolkit (0.50+dfsg-1) unstable; urgency=medium
+
+  [ Lennart Weller ]
+  * Initial release (Closes: #794570)
+
+  [ Scott Kitterman ]
+  * Update debian/copyright to use Files-Excluded to remove unused code copy
+    that contains sourceless generated files (See #798569 for details)
+  * Update debian/watch for dfsg mangled Debian version
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 10 Sep 2015 11:13:47 -0400
