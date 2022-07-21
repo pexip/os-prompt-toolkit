@@ -1,4 +1,4 @@
-prompt-toolkit (3.0.14-1pexip1) pexip; urgency=medium
+prompt-toolkit (3.0.14-1pexip1) pexip-bullseye; urgency=medium
 
   * Prepare Pexip packaging
 
