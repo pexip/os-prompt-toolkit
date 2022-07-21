@@ -1,3 +1,9 @@
+prompt-toolkit (3.0.14-1pexip1) pexip; urgency=medium
+
+  * Prepare Pexip packaging
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 21 Jul 2022 10:44:50 +0100
+
 prompt-toolkit (3.0.14-1) unstable; urgency=medium
 
   * New upstream version 3.0.14

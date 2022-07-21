@@ -1,6 +1,7 @@
 Source: prompt-toolkit
-Maintainer: Debian Python Team <team+python@tracker.debian.org>
-Uploaders: Lennart Weller <lhw@ring0.de>, Gordon Ball <gordon@chronitis.net>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
+XSBC-Pexip-Original-Uploaders: Lennart Weller <lhw@ring0.de>, Gordon Ball <gordon@chronitis.net>
 Section: python
 Vcs-Git: https://salsa.debian.org/python-team/packages/prompt-toolkit.git
 Vcs-Browser: https://salsa.debian.org/python-team/packages/prompt-toolkit
@@ -16,6 +17,7 @@ Build-Depends: debhelper-compat (= 13),
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Testsuite: autopkgtest-pkg-python
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ bullseye
 
 Package: python3-prompt-toolkit
 Architecture: all
