@@ -1,3 +1,9 @@
+prompt-toolkit (3.0.14-1pexip3) pexip-bullseye; urgency=medium
+
+  * Bullseye rebuild for ARM64 inclusion
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 05 Sep 2022 10:35:03 +0100
+
 prompt-toolkit (3.0.14-1pexip2) pexip-bullseye; urgency=medium
 
   * Rebuild for override changes
