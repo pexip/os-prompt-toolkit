@@ -1,3 +1,120 @@
+prompt-toolkit (3.0.36-2) sid; urgency=medium
+
+  * Uploading to sid.
+  * Updating to standards version 4.6.2.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 30 Jan 2023 17:56:19 +0100
+
+prompt-toolkit (3.0.36-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.36.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Mon, 12 Dec 2022 16:30:26 +0100
+
+prompt-toolkit (3.0.33-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.33.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 23 Nov 2022 09:04:21 +0100
+
+prompt-toolkit (3.0.32-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.32.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Sun, 06 Nov 2022 18:58:11 +0100
+
+prompt-toolkit (3.0.31-1) sid; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+  [ Daniel Baumann ]
+  * Uploading to sid.
+  * Merging upstream version 3.0.31.
+
+ -- Daniel Baumann <mail@daniel-baumann.ch>  Wed, 07 Sep 2022 11:35:43 +0200
+
+prompt-toolkit (3.0.30-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Updating to standards version 4.6.1.
+  * Merging upstream version 3.0.30.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Mon, 04 Jul 2022 09:53:35 +0200
+
+prompt-toolkit (3.0.29-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.29.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sun, 10 Apr 2022 16:40:26 +0200
+
+prompt-toolkit (3.0.28-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.28.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sat, 19 Feb 2022 09:04:22 +0100
+
+prompt-toolkit (3.0.27-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.27.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Wed, 09 Feb 2022 14:48:29 +0100
+
+prompt-toolkit (3.0.26-1) unstable; urgency=medium
+
+  * New upstream version 3.0.26
+
+ -- Gordon Ball <gordon@chronitis.net>  Fri, 28 Jan 2022 10:58:19 +0000
+
+prompt-toolkit (3.0.24-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.24.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sun, 12 Dec 2021 07:30:18 +0100
+
+prompt-toolkit (3.0.23-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.23.
+
+ -- Daniel Baumann <daniel.baumann@progress-linux.org>  Sat, 04 Dec 2021 05:04:43 +0100
+
+prompt-toolkit (3.0.22-1) unstable; urgency=medium
+
+  * New upstream version 3.0.22
+  * Standards-Version: 4.6.0
+  * Improve autopkgtest: ensure packaged code is used, test all supported
+    python3 versions
+
+ -- Gordon Ball <gordon@chronitis.net>  Sat, 06 Nov 2021 11:22:26 +0000
+
+prompt-toolkit (3.0.20-1) unstable; urgency=medium
+
+  * New upstream version 3.0.20
+
+ -- Gordon Ball <gordon@chronitis.net>  Sat, 21 Aug 2021 19:17:02 +0000
+
+prompt-toolkit (3.0.19-1) unstable; urgency=medium
+
+  * d/watch: new github tarball URL
+  * New upstream version 3.0.19 (Closes: #991199)
+  * d/control: add Daniel Baumann to uploaders
+
+ -- Gordon Ball <gordon@chronitis.net>  Tue, 03 Aug 2021 18:54:05 +0000
+
+prompt-toolkit (3.0.16-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #983556, #968600).
+
+ -- Andrej Shadura <andrewsh@debian.org>  Fri, 05 Mar 2021 19:15:52 +0100
+
 prompt-toolkit (3.0.14-1) unstable; urgency=medium
 
   * New upstream version 3.0.14

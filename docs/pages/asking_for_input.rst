@@ -160,6 +160,20 @@ All Pygments style classes can be used as well, when they are wrapped through
 Suppose we'd like to use a Pygments style, for instance
 ``pygments.styles.tango.TangoStyle``, that is possible like this:
 
+.. code:: python
+
+    from prompt_toolkit.shortcuts import prompt
+    from prompt_toolkit.styles import style_from_pygments_cls
+    from prompt_toolkit.lexers import PygmentsLexer
+    from pygments.styles.tango import TangoStyle
+    from pygments.lexers.html import HtmlLexer
+    
+    tango_style = style_from_pygments_cls (TangoStyle)
+    
+    text = prompt ('Enter HTML: ', 
+      lexer=PygmentsLexer(HtmlLexer),
+      style=tango_style)
+
 Creating a custom style could be done like this:
 
 .. code:: python
@@ -452,7 +466,7 @@ takes a :class:`~prompt_toolkit.document.Document` as input and raises
             if text and not text.isdigit():
                 i = 0
 
-                # Get index of fist non numeric character.
+                # Get index of first non numeric character.
                 # We want to move the cursor here.
                 for i, c in enumerate(text):
                     if not c.isdigit():
@@ -466,13 +480,13 @@ takes a :class:`~prompt_toolkit.document.Document` as input and raises
 
 .. image:: ../images/number-validator.png
 
-By default, the input is only validated when the user presses the enter key,
-but prompt_toolkit can also validate in real-time while typing:
+By default, the input is validated in real-time while the user is typing, but
+prompt_toolkit can also validate after the user presses the enter key:
 
 .. code:: python
 
     prompt('Give a number: ', validator=NumberValidator(),
-           validate_while_typing=True)
+           validate_while_typing=False)
 
 If the input validation contains some heavy CPU intensive code, but you don't
 want to block the event loop, then it's recommended to wrap the validator class
@@ -892,7 +906,6 @@ Enabling can be done by passing the ``mouse_support=True`` option.
 .. code:: python
 
     from prompt_toolkit import prompt
-    import getpass
 
     prompt('What is your name: ', mouse_support=True)
 
@@ -907,7 +920,6 @@ scroll horizontally.
 .. code:: python
 
     from prompt_toolkit import prompt
-    import getpass
 
     prompt('What is your name: ', wrap_lines=False)
 
@@ -921,9 +933,32 @@ asterisks (``*`` characters).
 .. code:: python
 
     from prompt_toolkit import prompt
-    import getpass
 
     prompt('Enter password: ', is_password=True)
+
+
+Cursor shapes
+-------------
+
+Many terminals support displaying different types of cursor shapes. The most
+common are block, beam or underscore. Either blinking or not. It is possible to
+decide which cursor to display while asking for input, or in case of Vi input
+mode, have a modal prompt for which its cursor shape changes according to the
+input mode.
+
+.. code:: python
+
+    from prompt_toolkit import prompt
+    from prompt_toolkit.cursor_shapes import CursorShape, ModalCursorShapeConfig
+
+    # Several possible values for the `cursor_shape_config` parameter:
+    prompt('>', cursor=CursorShape.BLOCK)
+    prompt('>', cursor=CursorShape.UNDERLINE)
+    prompt('>', cursor=CursorShape.BEAM)
+    prompt('>', cursor=CursorShape.BLINKING_BLOCK)
+    prompt('>', cursor=CursorShape.BLINKING_UNDERLINE)
+    prompt('>', cursor=CursorShape.BLINKING_BEAM)
+    prompt('>', cursor=ModalCursorShapeConfig())
 
 
 Prompt in an `asyncio` application

@@ -82,10 +82,8 @@ Style
 .. automodule:: prompt_toolkit.styles
     :members: Attrs, ANSI_COLOR_NAMES, BaseStyle, DummyStyle, DynamicStyle,
         Style, Priority, merge_styles, style_from_pygments_cls,
-        style_from_pygments_dict, pygments_token_to_classname, NAMED_COLORS
-
-.. automodule:: prompt_toolkit.styles
-    :members: StyleTransformation, SwapLightAndDarkStyleTransformation,
+        style_from_pygments_dict, pygments_token_to_classname, NAMED_COLORS,
+        StyleTransformation, SwapLightAndDarkStyleTransformation,
         AdjustBrightnessStyleTransformation, merge_style_transformations,
         DummyStyleTransformation, ConditionalStyleTransformation,
         DynamicStyleTransformation
@@ -134,44 +132,152 @@ Lexers
 Layout
 ------
 
+.. automodule:: prompt_toolkit.layout
+
 The layout class itself
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: prompt_toolkit.layout
-    :members: Layout, InvalidLayoutError, walk
+.. autoclass:: prompt_toolkit.layout.Layout
+    :members:
 
+.. autoclass:: prompt_toolkit.layout.InvalidLayoutError
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.walk
+    :members:
 
 Containers
 ^^^^^^^^^^
 
-.. automodule:: prompt_toolkit.layout
-    :members: Container, HSplit, VSplit, FloatContainer, Float, Window,
-        WindowAlign, ConditionalContainer, DynamicContainer, ScrollOffsets,
-        ColorColumn, to_container, to_window, is_container, HorizontalAlign,
-        VerticalAlign
+.. autoclass:: prompt_toolkit.layout.Container
+    :members:
 
+.. autoclass:: prompt_toolkit.layout.HSplit
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.VSplit
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.FloatContainer
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.Float
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.Window
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.WindowAlign
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ConditionalContainer
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.DynamicContainer
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ScrollablePane
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ScrollOffsets
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ColorColumn
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.to_container
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.to_window
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.is_container
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.HorizontalAlign
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.VerticalAlign
+    :members:
 
 Controls
 ^^^^^^^^
 
-.. automodule:: prompt_toolkit.layout
-    :members: BufferControl, SearchBufferControl, DummyControl,
-        FormattedTextControl, UIControl, UIContent
+.. autoclass:: prompt_toolkit.layout.BufferControl
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.SearchBufferControl
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.DummyControl
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.FormattedTextControl
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.UIControl
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.UIContent
+    :members:
 
 
 Other
 ^^^^^
 
-.. automodule:: prompt_toolkit.layout
-    :members: Dimension, Margin, NumberedMargin, ScrollbarMargin,
-        ConditionalMargin, PromptMargin, CompletionsMenu,
-        MultiColumnCompletionsMenu
+
+Sizing
+""""""
+
+.. autoclass:: prompt_toolkit.layout.Dimension
+    :members:
+
+
+Margins
+"""""""
+
+.. autoclass:: prompt_toolkit.layout.Margin
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.NumberedMargin
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ScrollbarMargin
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.ConditionalMargin
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.PromptMargin
+    :members:
+
+
+Completion Menus
+""""""""""""""""
+
+.. autoclass:: prompt_toolkit.layout.CompletionsMenu
+    :members:
+
+.. autoclass:: prompt_toolkit.layout.MultiColumnCompletionsMenu
+    :members:
+
+
+Processors
+""""""""""
 
 .. automodule:: prompt_toolkit.layout.processors
     :members:
 
+
+Utils
+"""""
+
 .. automodule:: prompt_toolkit.layout.utils
     :members:
+
+
+Screen
+""""""
 
 .. automodule:: prompt_toolkit.layout.screen
     :members:
@@ -276,6 +382,18 @@ Output
 .. automodule:: prompt_toolkit.output.win32
     :members:
 
+
+Data structures
+---------------
+
+.. autoclass:: prompt_toolkit.layout.WindowRenderInfo
+    :members:
+
+.. autoclass:: prompt_toolkit.data_structures.Point
+    :members:
+
+.. autoclass:: prompt_toolkit.data_structures.Size
+    :members:
 
 Patch stdout
 ------------

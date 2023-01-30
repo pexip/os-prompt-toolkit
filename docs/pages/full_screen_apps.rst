@@ -131,7 +131,7 @@ abstraction.
 
 - A higher level abstraction of building a layout is by using "widgets". A
   widget is a reusable layout component that can contain multiple containers
-  and controls. Widgets have a ``__pt__container__`` function, which returns
+  and controls. Widgets have a ``__pt_container__`` function, which returns
   the root container for this widget. Prompt_toolkit contains a couple of
   widgets like :class:`~prompt_toolkit.widgets.TextArea`,
   :class:`~prompt_toolkit.widgets.Button`,
@@ -168,6 +168,7 @@ responsible for generating the actual content.
 |                                             | :class:`~prompt_toolkit.layout.VSplit`               |
 |                                             | :class:`~prompt_toolkit.layout.FloatContainer`       |
 |                                             | :class:`~prompt_toolkit.layout.Window`               |
+|                                             | :class:`~prompt_toolkit.layout.ScrollablePane`       |
 +---------------------------------------------+------------------------------------------------------+
 | :class:`~prompt_toolkit.layout.UIControl`   | :class:`~prompt_toolkit.layout.BufferControl`        |
 |                                             | :class:`~prompt_toolkit.layout.FormattedTextControl` |
@@ -228,6 +229,10 @@ More complex layouts can be achieved by nesting multiple
 If you want to make some part of the layout only visible when a certain
 condition is satisfied, use a
 :class:`~prompt_toolkit.layout.ConditionalContainer`.
+
+Finally, there is :class:`~prompt_toolkit.layout.ScrollablePane`, a container
+class that can be used to create long forms or nested layouts that are
+scrollable as a whole.
 
 
 Focusing windows
