@@ -17,7 +17,7 @@ Build-Depends: debhelper-compat (= 13),
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Testsuite: autopkgtest-pkg-python
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ bullseye
+XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
 
 Package: python3-prompt-toolkit
 Architecture: all
