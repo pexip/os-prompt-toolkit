@@ -37,6 +37,8 @@ Shells:
 - `athenacli <https://github.com/dbcli/athenacli>`_: A CLI for AWS Athena.
 - `vulcano <https://github.com/dgarana/vulcano>`_: A framework for creating command-line applications that also runs in REPL mode.
 - `kafka-shell <https://github.com/devshawn/kafka-shell>`_: A supercharged shell for Apache Kafka.
+- `starterTree <https://github.com/thomas10-10/starterTree>`_: A command launcher organised in a tree structure with fuzzy autocompletion 
+- `git-delete-merged-branches <https://github.com/hartwork/git-delete-merged-branches>`_: Command-line tool to delete merged Git branches
 
 Full screen applications:
 
@@ -47,11 +49,14 @@ Full screen applications:
 - `kubeterminal <https://github.com/samisalkosuo/kubeterminal>`_: Kubectl helper tool.
 - `pydoro <https://github.com/JaDogg/pydoro>`_: Pomodoro timer.
 - `sanctuary-zero <https://github.com/t0xic0der/sanctuary-zero>`_: A secure chatroom with zero logging and total transience.
+- `Hummingbot <https://github.com/CoinAlpha/hummingbot>`_: A Cryptocurrency Algorithimic Trading Platform
+- `git-bbb <https://github.com/MrMino/git-bbb>`_: A `git blame` browser.
 
 Libraries:
 
 - `ptterm <https://github.com/prompt-toolkit/ptterm>`_: A terminal emulator widget for prompt_toolkit.
 - `PyInquirer <https://github.com/CITGuru/PyInquirer/>`_: A Python library that wants to make it easy for existing Inquirer.js users to write immersive command line applications in Python.
+- `clintermission <https://github.com/sebageek/clintermission>`_: Non-fullscreen command-line selection menu
 
 Other libraries and implementations in other languages
 ******************************************************

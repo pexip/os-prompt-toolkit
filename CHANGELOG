@@ -1,6 +1,286 @@
 CHANGELOG
 =========
 
+3.0.36: 2022-12-06
+------------------
+
+Fixes:
+- Another Python 3.6 fix for a bug that was introduced in 3.0.34.
+
+
+3.0.35: 2022-12-06
+------------------
+
+Fixes:
+- Fix bug introduced in 3.0.34 for Python 3.6. Use asynccontextmanager
+  implementation from prompt_toolkit itself.
+
+
+3.0.34: 2022-12-06
+------------------
+
+Fixes:
+- Improve completion performance in various places.
+- Improve renderer performance.
+- Handle `KeyboardInterrupt` when the stacktrace of an unhandled error is
+  displayed.
+- Use correct event loop in `Application.create_background_task()`.
+- Fix `show_cursor` attribute in `ScrollablePane`.
+
+
+3.0.33: 2022-11-21
+------------------
+
+Fixes:
+- Improve termination of `Application`. Don't suppress `CancelledError`. This
+  fixes a race condition when an `Application` gets cancelled while we're
+  waiting for the background tasks to complete.
+- Fixed typehint for `OneStyleAndTextTuple`.
+- Small bugfix in `CombinedRegistry`. Fixed missing `@property`.
+
+
+3.0.32: 2022-11-03
+------------------
+
+Bug fixes:
+- Use `DummyInput` by default in `create_input()` if `sys.stdin` does not have
+  a valid file descriptor. This fixes errors when `sys.stdin` is patched in
+  certain situations.
+- Fix control-c key binding for `ProgressBar` when the progress bar was not
+  created from the main thread. The current code would try to kill the main
+  thread when control-c was pressed.
+
+New features:
+- Accept a `cancel_callback` in `ProgressBar` to specify the cancellation
+  behavior for when `control-c` is pressed.
+- Small performance improvement in the renderer.
+
+
+3.0.31: 2022-09-02
+------------------
+
+New features:
+- Pass through `name` property in `TextArea` widget to `Buffer`.
+- Added a `enable_cpr` parameter to `Vt100_Output`, `TelnetServer` and
+  `PromptToolkitSSHServer`, to completely disable CPR support instead of
+  automatically detecting it.
+
+
+3.0.30: 2022-06-27
+------------------
+
+New features:
+- Allow zero-width-escape sequences in `print_formatted_text`.
+- Add default value option for input dialog.
+- Added `has_suggestion` filter.
+
+Fixes:
+- Fix rendering of control-shift-6 (or control-^). Render as '^^'
+- Always wrap lines in the Label widget by default.
+- Fix enter key binding in system toolbar in Vi mode.
+- Improved handling of stdout objects that don't have a 'buffer' attribute. For
+  instance, when using `renderer_print_formatted_text` in a Jupyter Notebook.
+
+
+3.0.29: 2022-04-04
+------------------
+
+New features:
+- Accept 'handle_sigint' parameter in PromptSession.
+
+Fixes
+- Fix 'variable referenced before assignment' error in vt100 mouse bindings.
+- Pass `handle_sigint` from `Application.run` to `Application.run_async`.
+- Fix detection of telnet client side changes.
+- Fix `print_container` utility (handle `EOFError`).
+
+Breaking changes:
+- The following are now context managers:
+  `create_pipe_input`, `PosixPipeInput` and `Win32PipeInput`.
+
+
+3.0.28: 2022-02-11
+------------------
+
+New features:
+- Support format specifiers for HTML and ANSI formatted text.
+- Accept defaults for checkbox and radio list, and their corresponding dialogs.
+
+Fixes:
+- Fix resetting of cursor shape after the application terminates.
+
+
+3.0.27: 2022-02-07
+------------------
+
+New features:
+- Support for cursor shapes. The cursor shape for prompts/applications can now
+  be configured, either as a fixed cursor shape, or in case of Vi input mode,
+  according to the current input mode.
+- Handle "cursor forward" command in ANSI formatted text. This makes it
+  possible to render many kinds of generated ANSI art.
+- Accept `align` attribute in `Label` widget.
+- Added `PlainTextOutput`: an output implementation that doesn't render any
+  ANSI escape sequences. This will be used by default when redirecting stdout
+  to a file.
+- Added `create_app_session_from_tty`: a context manager that enforces
+  input/output to go to the current TTY, even if stdin/stdout are attached to
+  pipes.
+- Added `to_plain_text` utility for converting formatted text into plain text.
+
+Fixes:
+- Don't automatically use `sys.stderr` for output when `sys.stdout` is not a
+  TTY, but `sys.stderr` is. The previous behavior was confusing, especially
+  when rendering formatted text to the output, and we expect it to follow
+  redirection.
+
+3.0.26: 2022-01-27
+------------------
+
+Fixes:
+- Fixes issue introduced in 3.0.25: Don't handle SIGINT on Windows.
+
+
+3.0.25: 2022-01-27
+------------------
+
+Fixes:
+- Use `DummyOutput` when `sys.stdout` is `None` and `DummyInput` when
+  `sys.stdin` is `None`. This fixes an issue when the code runs on windows,
+  using pythonw.exe and still tries to interact with the terminal.
+- Correctly reset `Application._is_running` flag in case of exceptions in some
+  situations.
+- Handle SIGINT (when sent from another process) and allow binding it to a key
+  binding. For prompt sessions, the behavior is now identical to pressing
+  control-c.
+- Increase the event loop `slow_duration_callback` by default to 0.5. This
+  prevents printing warnings if rendering takes too long on slow systems.
+
+
+3.0.24: 2021-12-09
+------------------
+
+Fixes:
+- Prevent window content overflowing when using scrollbars.
+- Handle `PermissionError` when trying to attach /dev/null in vt100 input.
+
+
+3.0.23: 2021-11-26
+------------------
+
+Fixes:
+- Fix multiline bracketed paste on Windows
+
+New features:
+- Add support for some CSI 27 modified variants of "Enter" for xterm in the
+  vt100 input parser.
+
+
+3.0.22: 2021-11-04
+------------------
+
+Fixes:
+- Fix stopping of telnet server (capture cancellation exception).
+
+
+3.0.21: 2021-10-21
+------------------
+
+New features:
+- Improved mouse support:
+  * Support for click-drag, which is useful for selecting text.
+  * Detect mouse movements when no button is pressed.
+- Support for Python 3.10.
+
+
+3.0.20: 2021-08-20
+------------------
+
+New features:
+- Add support for strikethrough text attributes.
+- Set up custom breakpointhook while an application is running (if no other
+  breakpointhook was installed). This enhances the usage of PDB for debugging
+  applications.
+- Strict type checking is now enabled.
+
+Fixes:
+- Ensure that `print_formatted_text` is always printed above the running
+  application, like `patch_stdout`. (Before, `patch_stdout` was even completely
+  ignored in case of `print_formatted_text, so there was no proper way to use
+  it in a running application.)
+- Fix handling of non-bmp unicode input on Windows.
+- Set minimum Python version to 3.6.2 (Some 3.6.2 features were used).
+
+
+3.0.19: 2021-06-17
+------------------
+
+Fixes:
+- Make the flush method of the vt100 output implementation re-entrant (fixes an
+  issue when using aiogevent).
+- Fix off-by-one in `FormattedTextControl` mouse logic.
+- Run `print_container` always in a thread (avoid interfering with possible
+  event loop).
+- Make sphinx autodoc generation platform agnostic (don't import Windows stuff
+  when generating Sphinx docs).
+
+
+3.0.18: 2021-03-22
+------------------
+
+New features:
+- Added `in_thread` parameter to `Application.run`.
+  This is useful for running an application in a background thread, while the
+  main thread blocks. This way, we are sure not to interfere with an event loop
+  in the current thread. (This simplifies some code in ptpython and fixes an
+  issue regarding leaking file descriptors due to not closing the event loop
+  that was created in this background thread.)
+
+
+3.0.17: 2021-03-11
+------------------
+
+New features:
+- Accept `style` parameter in `print_container` utility.
+- On Windows, handle Control-Delete.
+
+Fixes:
+- Avoid leaking file descriptors in SSH server.
+
+
+3.0.16: 2021-02-11
+------------------
+
+New features:
+- Added `ScrollablePane`: a scrollable layout container.
+  This allows applications to build a layout, larger than the terminal, with a
+  vertical scroll bar. The vertical scrolling will be done automatically when
+  certain widgets receive the focus.
+- Added `DeduplicateCompleter and `ConditionalCompleter`.
+- Added `deduplicate` argument to `merge_completers`.
+
+
+3.0.15: 2021-02-10
+------------------
+
+Fixes:
+- Set stdout blocking when writing in vt100 output. Fixes an issue when uvloop
+  is used and big amounts of text are written.
+- Guarantee height of at least 1 for both labels and text areas.
+- In the `Window` rendering, take `dont_extend_width`/`dont_extend_height` into
+  account. This fixes issues where one window is enlarged unexpectedly because
+  it's bundled with another window in a `HSplit`/`VSplit`, but with different
+  width/height.
+- Don't handle `SIGWINCH` in progress bar anymore. (The UI runs in another
+  thread, and we have terminal size polling now).
+- Fix several thread safety issues and a race condition in the progress bar.
+- Fix thread safety issues in `Application.invalidate()`. (Fixes a
+  `RuntimeError` in some situations when using progress bars.)
+- Fix handling of mouse events on Windows if we have a Windows 10 console with
+  ANSI support.
+- Disable `QUICK_EDIT_MODE` on Windows 10 when mouse support is requested.
+
+
 3.0.14: 2021-01-24
 ------------------
 

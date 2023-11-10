@@ -1,4 +1,3 @@
-# encoding: utf-8
 """
 These are almost end-to-end tests. They create a Prompt, feed it with some
 input and check the result.
@@ -46,9 +45,7 @@ def _feed_cli_with_input(
     if check_line_ending:
         assert text.endswith("\r")
 
-    inp = create_pipe_input()
-
-    try:
+    with create_pipe_input() as inp:
         inp.send_text(text)
         session = PromptSession(
             input=inp,
@@ -60,11 +57,8 @@ def _feed_cli_with_input(
             key_bindings=key_bindings,
         )
 
-        result = session.prompt()
+        _ = session.prompt()
         return session.default_buffer.document, session.app
-
-    finally:
-        inp.close()
 
 
 def test_simple_text_input():
@@ -504,7 +498,7 @@ def test_emacs_record_macro():
 
 
 def test_emacs_nested_macro():
-    " Test calling the macro within a macro. "
+    "Test calling the macro within a macro."
     # Calling a macro within a macro should take the previous recording (if one
     # exists), not the one that is in progress.
     operations = (
@@ -671,7 +665,7 @@ def test_vi_digraphs():
 
 
 def test_vi_block_editing():
-    " Test Vi Control-V style block insertion. "
+    "Test Vi Control-V style block insertion."
     feed = partial(_feed_cli_with_input, editing_mode=EditingMode.VI, multiline=True)
 
     operations = (
@@ -705,7 +699,7 @@ def test_vi_block_editing():
 
 
 def test_vi_block_editing_empty_lines():
-    " Test block editing on empty lines. "
+    "Test block editing on empty lines."
     feed = partial(_feed_cli_with_input, editing_mode=EditingMode.VI, multiline=True)
 
     operations = (
@@ -805,7 +799,7 @@ def test_vi_visual_empty_line():
 
 
 def test_vi_character_delete_after_cursor():
-    " Test 'x' keypress. "
+    "Test 'x' keypress."
     feed = partial(_feed_cli_with_input, editing_mode=EditingMode.VI, multiline=True)
 
     # Delete one character.
@@ -830,7 +824,7 @@ def test_vi_character_delete_after_cursor():
 
 
 def test_vi_character_delete_before_cursor():
-    " Test 'X' keypress. "
+    "Test 'X' keypress."
     feed = partial(_feed_cli_with_input, editing_mode=EditingMode.VI, multiline=True)
 
     # Delete one character.
@@ -934,15 +928,12 @@ def test_accept_default():
     """
     Test `prompt(accept_default=True)`.
     """
-    inp = create_pipe_input()
+    with create_pipe_input() as inp:
+        session = PromptSession(input=inp, output=DummyOutput())
+        result = session.prompt(default="hello", accept_default=True)
+        assert result == "hello"
 
-    session = PromptSession(input=inp, output=DummyOutput())
-    result = session.prompt(default="hello", accept_default=True)
-    assert result == "hello"
-
-    # Test calling prompt() for a second time. (We had an issue where the
-    # prompt reset between calls happened at the wrong time, breaking this.)
-    result = session.prompt(default="world", accept_default=True)
-    assert result == "world"
-
-    inp.close()
+        # Test calling prompt() for a second time. (We had an issue where the
+        # prompt reset between calls happened at the wrong time, breaking this.)
+        result = session.prompt(default="world", accept_default=True)
+        assert result == "world"

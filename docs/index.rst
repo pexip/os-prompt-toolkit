@@ -39,7 +39,7 @@ Works everywhere:
 - Pure Python. Runs on all Python versions starting at Python 3.6.
   (Python 2.6 - 3.x is supported in prompt_toolkit 2.0; not 3.0).
 - Runs on Linux, OS X, OpenBSD and Windows systems.
-- Lightweight, the only dependencies are Pygments, six and wcwidth.
+- Lightweight, the only dependencies are Pygments and wcwidth.
 - No assumptions about I/O are made. Every prompt_toolkit application should
   also run in a telnet/ssh server or an `asyncio
   <https://docs.python.org/3/library/asyncio.html>`_ process.
@@ -49,14 +49,16 @@ Have a look at :ref:`the gallery <gallery>` to get an idea of what is possible.
 Getting started
 ---------------
 
-Go to :ref:`getting started <getting_started>` and build your first prompt.
+Go to :ref:`getting started <getting_started>` and build your first prompt. 
+Issues are tracked `on the Github project
+<https://github.com/prompt-toolkit/python-prompt-toolkit>`_.
 
 
 Thanks to:
 ----------
 
 A special thanks to `all the contributors
-<https://github.com/prompt_toolkit/python-prompt-toolkit/graphs/contributors>`_
+<https://github.com/prompt-toolkit/python-prompt-toolkit/graphs/contributors>`_
 for making prompt_toolkit possible.
 
 Also, a special thanks to the `Pygments <http://pygments.org/>`_ and `wcwidth
@@ -90,4 +92,4 @@ Indices and tables
 * :ref:`search`
 
 Prompt_toolkit was created by `Jonathan Slenders
-<http://github.com/prompt_toolkit/>`_.
+<http://github.com/prompt-toolkit/>`_.
