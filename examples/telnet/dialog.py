@@ -3,9 +3,9 @@
 Example of a telnet application that displays a dialog window.
 """
 import logging
-from asyncio import get_event_loop
 
 from prompt_toolkit.contrib.telnet.server import TelnetServer
+from prompt_toolkit.eventloop import get_event_loop
 from prompt_toolkit.shortcuts.dialogs import yes_no_dialog
 
 # Set up logging
@@ -18,7 +18,7 @@ async def interact(connection):
         title="Yes/no dialog demo", text="Press yes or no"
     ).run_async()
 
-    connection.send("You said: {}\n".format(result))
+    connection.send(f"You said: {result}\n")
     connection.send("Bye.\n")
 
 

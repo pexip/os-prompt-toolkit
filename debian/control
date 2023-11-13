@@ -1,7 +1,9 @@
 Source: prompt-toolkit
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
-XSBC-Pexip-Original-Uploaders: Lennart Weller <lhw@ring0.de>, Gordon Ball <gordon@chronitis.net>
+XSBC-Pexip-Original-Uploaders: Lennart Weller <lhw@ring0.de>,
+           Gordon Ball <gordon@chronitis.net>,
+           Daniel Baumann <daniel.baumann@progress-linux.org>,
 Section: python
 Vcs-Git: https://salsa.debian.org/python-team/packages/prompt-toolkit.git
 Vcs-Browser: https://salsa.debian.org/python-team/packages/prompt-toolkit
@@ -14,7 +16,7 @@ Build-Depends: debhelper-compat (= 13),
                python3-pytest <!nocheck>,
                python3-setuptools,
                python3-wcwidth,
-Standards-Version: 4.5.0
+Standards-Version: 4.6.2
 Rules-Requires-Root: no
 Testsuite: autopkgtest-pkg-python
 XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
@@ -22,8 +24,7 @@ XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
 Package: python3-prompt-toolkit
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
-Breaks: aws-shell (<= 0.2.1-1~),
-        mycli (<< 1.19~),
+Breaks: mycli (<< 1.19~),
         pgcli (<< 2~),
         python3-ipython (<< 7~),
         python3-jupyter-console (<< 6~),

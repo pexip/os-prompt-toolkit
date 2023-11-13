@@ -19,7 +19,7 @@ Read User Input
 Let's start accepting input using the
 :func:`~prompt_toolkit.shortcuts.prompt()` function. This will ask the user for
 input, and echo back whatever the user typed. We wrap it in a ``main()``
-function as a good practise.
+function as a good practice.
 
 .. code:: python
 
@@ -42,7 +42,7 @@ Now we want to call the :meth:`~prompt_toolkit.shortcuts.PromptSession.prompt`
 method in a loop. In order to keep the history, the easiest way to do it is to
 use a :class:`~prompt_toolkit.shortcuts.PromptSession`. This uses an
 :class:`~prompt_toolkit.history.InMemoryHistory` underneath that keeps track of
-the history, so that if the user presses the up-arrow, he'll see the previous
+the history, so that if the user presses the up-arrow, they'll see the previous
 entries.
 
 The :meth:`~prompt_toolkit.shortcuts.PromptSession.prompt` method raises
@@ -337,5 +337,5 @@ interfaces.
 
 The End.
 
-.. _prompt_toolkit: https://github.com/prompt_toolkit/python-prompt-toolkit
+.. _prompt_toolkit: https://github.com/prompt-toolkit/python-prompt-toolkit
 .. _Pygments: http://pygments.org/
