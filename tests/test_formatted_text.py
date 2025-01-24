@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from prompt_toolkit.formatted_text import (
     ANSI,
     HTML,
@@ -26,7 +28,7 @@ def test_basic_html():
     ]
 
     # It's important that `to_formatted_text` returns a `FormattedText`
-    # instance. Otherwise, `print_formatted_text` won't recognise it and will
+    # instance. Otherwise, `print_formatted_text` won't recognize it and will
     # print a list literal instead.
     assert isinstance(to_formatted_text(html), FormattedText)
 

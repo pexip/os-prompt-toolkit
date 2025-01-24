@@ -4,13 +4,14 @@ A simple chat application over telnet.
 Everyone that connects is asked for his name, and then people can chat with
 each other.
 """
+
 import logging
 import random
+from asyncio import Future, run
 
 from prompt_toolkit.contrib.telnet.server import TelnetServer
-from prompt_toolkit.eventloop import get_event_loop
 from prompt_toolkit.formatted_text import HTML
-from prompt_toolkit.shortcuts import PromptSession, clear, prompt
+from prompt_toolkit.shortcuts import PromptSession, clear
 
 # Set up logging
 logging.basicConfig()
@@ -84,18 +85,20 @@ def _send_to_everyone(sender_connection, name, message, color):
         if c != sender_connection:
             c.send_above_prompt(
                 [
-                    ("fg:" + color, "[%s]" % name),
+                    ("fg:" + color, f"[{name}]"),
                     ("", " "),
-                    ("fg:" + color, "%s\n" % message),
+                    ("fg:" + color, f"{message}\n"),
                 ]
             )
 
 
-def main():
+async def main():
     server = TelnetServer(interact=interact, port=2323)
     server.start()
-    get_event_loop().run_forever()
+
+    # Run forever.
+    await Future()
 
 
 if __name__ == "__main__":
-    main()
+    run(main())
