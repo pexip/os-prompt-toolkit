@@ -2,9 +2,15 @@
 
 export PYBUILD_NAME=prompt-toolkit
 
+VERSION := $(shell dpkg-parsechangelog | awk '/^Version: / { print $$2 }' | rev | cut -d- -f2- | rev)
+
 %:
 	dh ${@} --with python3 --buildsystem=pybuild
 
 execute_after_dh_auto_clean:
 	# help pybuild
 	rm -rf src/*.egg-info
+
+execute_after_dh_auto_install:
+	# fix internal version lookup
+	sed -i -e "s|\(__version__\) = .*|\1 = '$(VERSION)'|" debian/python3-prompt-toolkit/usr/lib/python3*/dist-packages/prompt_toolkit/__init__.py

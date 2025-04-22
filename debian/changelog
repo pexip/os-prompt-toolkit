@@ -1,3 +1,18 @@
+prompt-toolkit (3.0.51-2) sid; urgency=medium
+
+  * Workarounding internal version lookup by manually writing version
+    until there's a better fix upstream (Closes: #1103768).
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 22 Apr 2025 06:08:29 +0200
+
+prompt-toolkit (3.0.51-1) sid; urgency=medium
+
+  * Uploading to sid.
+  * Merging upstream version 3.0.51.
+  * Updating build-depends for PEP517.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 20 Apr 2025 08:57:53 +0200
+
 prompt-toolkit (3.0.50-1) sid; urgency=medium
 
   * Uploading to sid.

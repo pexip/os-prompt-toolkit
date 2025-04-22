@@ -12,6 +12,7 @@ Homepage: https://github.com/prompt-toolkit/python-prompt-toolkit
 Build-Depends:
  debhelper-compat (= 13),
  dh-python,
+ pybuild-plugin-pyproject,
  python3-all,
  python3-asyncssh <!nocheck>,
  python3-pytest <!nocheck>,
