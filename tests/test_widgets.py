@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from prompt_toolkit.formatted_text import fragment_list_to_text
 from prompt_toolkit.layout import to_window
 from prompt_toolkit.widgets import Button
@@ -8,7 +10,7 @@ def _to_text(button: Button) -> str:
     return fragment_list_to_text(control.text())
 
 
-def test_defaulf_button():
+def test_default_button():
     button = Button("Exit")
     assert _to_text(button) == "<   Exit   >"
 

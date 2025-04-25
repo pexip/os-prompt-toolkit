@@ -3,9 +3,9 @@
 A simple example of a calculator program.
 This could be used as inspiration for a REPL.
 """
+
 from prompt_toolkit.application import Application
 from prompt_toolkit.document import Document
-from prompt_toolkit.filters import has_focus
 from prompt_toolkit.key_binding import KeyBindings
 from prompt_toolkit.layout.containers import HSplit, Window
 from prompt_toolkit.layout.layout import Layout
@@ -50,9 +50,7 @@ def main():
     def accept(buff):
         # Evaluate "calculator" expression.
         try:
-            output = "\n\nIn:  {}\nOut: {}".format(
-                input_field.text, eval(input_field.text)
-            )  # Don't do 'eval' in real code!
+            output = f"\n\nIn:  {input_field.text}\nOut: {eval(input_field.text)}"  # Don't do 'eval' in real code!
         except BaseException as e:
             output = f"\n\n{e}"
         new_text = output_field.text + output

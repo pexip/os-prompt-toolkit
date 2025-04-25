@@ -3,6 +3,7 @@
 A very simple progress bar which keep track of the progress as we consume an
 iterator.
 """
+
 import time
 
 from prompt_toolkit.formatted_text import HTML
@@ -41,7 +42,6 @@ def main():
         formatters=custom_formatters,
         style=style,
     ) as pb:
-
         for i in pb(range(20), label="Downloading..."):
             time.sleep(1)
 

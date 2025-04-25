@@ -2,6 +2,9 @@
 These are almost end-to-end tests. They create a Prompt, feed it with some
 input and check the result.
 """
+
+from __future__ import annotations
+
 from functools import partial
 
 import pytest
@@ -188,7 +191,7 @@ def test_emacs_cursor_movements():
 def test_emacs_kill_multiple_words_and_paste():
     # Using control-w twice should place both words on the clipboard.
     result, cli = _feed_cli_with_input(
-        "hello world test" "\x17\x17" "--\x19\x19\r"  # Twice c-w.  # Twice c-y.
+        "hello world test\x17\x17--\x19\x19\r"  # Twice c-w.  Twice c-y.
     )
     assert result.text == "hello --world testworld test"
     assert cli.clipboard.get_data().text == "world test"
@@ -867,11 +870,11 @@ def test_vi_temp_navigation_mode():
     """
     feed = partial(_feed_cli_with_input, editing_mode=EditingMode.VI)
 
-    result, cli = feed("abcde" "\x0f" "3h" "x\r")  # c-o  # 3 times to the left.
+    result, cli = feed("abcde\x0f3hx\r")  # c-o  # 3 times to the left.
     assert result.text == "axbcde"
     assert result.cursor_position == 2
 
-    result, cli = feed("abcde" "\x0f" "b" "x\r")  # c-o  # One word backwards.
+    result, cli = feed("abcde\x0fbx\r")  # c-o  # One word backwards.
     assert result.text == "xabcde"
     assert result.cursor_position == 1
 

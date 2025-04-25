@@ -2,6 +2,7 @@
 """
 Vertical align demo with VSplit.
 """
+
 from prompt_toolkit.application import Application
 from prompt_toolkit.formatted_text import HTML
 from prompt_toolkit.key_binding import KeyBindings
@@ -13,7 +14,6 @@ from prompt_toolkit.layout.containers import (
     WindowAlign,
 )
 from prompt_toolkit.layout.controls import FormattedTextControl
-from prompt_toolkit.layout.dimension import D
 from prompt_toolkit.layout.layout import Layout
 from prompt_toolkit.widgets import Frame
 

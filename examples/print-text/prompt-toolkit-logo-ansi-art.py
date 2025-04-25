@@ -4,8 +4,9 @@ This prints the prompt_toolkit logo at the terminal.
 The ANSI output was generated using "pngtoansi": https://github.com/crgimenes/pngtoansi
 (ESC still had to be replaced with \x1b
 """
+
 from prompt_toolkit import print_formatted_text
-from prompt_toolkit.formatted_text import ANSI, HTML, FormattedText
+from prompt_toolkit.formatted_text import ANSI
 
 print_formatted_text(
     ANSI(
