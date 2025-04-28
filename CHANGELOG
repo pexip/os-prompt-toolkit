@@ -1,6 +1,166 @@
 CHANGELOG
 =========
 
+3.0.50: 2025-01-20
+------------------
+
+Fixes:
+- Fixes non user impacting regression on the output rendering. Don't render
+  cursor hide/show ANSI escape codes if not needed.
+
+
+3.0.49: 2025-01-20
+------------------
+
+New features:
+- On Windows, use virtual terminal input when available.
+- Support for multiline suggestions.
+
+Fixes:
+- Handle `InvalidStateError` during termination when using
+  `run_in_terminal`/`patch_stdout`. This can happen in some cases during
+  cancellation, probably when using anyio.
+- Fix cursor that remains in hidden state when the application exits. This can
+  happen when the application doesn't show the cursor and `erase_when_done` is
+  being used.
+
+Breaking changes:
+- Drop support for Python 3.7:
+
+
+3.0.48: 2024-09-25
+------------------
+
+Fixes:
+- Typing improvements:
+  * Add `@overload` to `contrib.regular_languages.compiler.Variables.get`.
+  * Use `Sequence` instead of `list` for `words` argument in completers.
+- Improve `ModalCursorShapeConfig`:
+  * Display an "underscore" cursor in Vi's "replace single" mode, like
+    "replace" mode.
+  * Display an "beam" cursor in Emacs (insert) mode.
+
+
+3.0.47: 2024-06-10
+------------------
+
+New features:
+- Allow passing exception classes for `KeyboardInterrupt` and `EOFError` in
+  `PromptSession`.
+
+Fixes:
+- Compute padding parameters for `Box` widget lazily.
+
+
+3.0.46: 2024-06-04
+------------------
+
+Fixes:
+- Fix pytest capsys fixture compatibility.
+
+
+3.0.45: 2024-05-28
+------------------
+
+Fixes:
+- Improve performance of `GrammarCompleter` (faster deduplication of completions).
+
+
+3.0.44: 2024-05-27
+------------------
+
+New features:
+- Accept `os.PathLike` in `FileHistory` (typing fix).
+
+Fixes:
+- Fix memory leak in filters.
+- Improve performance of progress bar formatters.
+- Fix compatibility when a SIGINT handler is installed by non-Python (Rust, C).
+- Limit number of completions in buffer to 10k by default (for performance).
+
+
+3.0.43: 2023-12-13
+------------------
+
+Fixes:
+- Fix regression on Pypy: Don't use `ctypes.pythonapi` to restore SIGINT if not
+  available.
+
+
+3.0.42: 2023-12-12
+------------------
+
+Fixes:
+- Fix line wrapping in `patch_stdout` on Windows.
+- Make `formatted_text.split_lines()` accept an iterable instead of lists only.
+- Disable the IPython workaround (from 3.0.41) for IPython >= 8.18.
+- Restore signal.SIGINT handler between prompts.
+
+
+3.0.41: 2023-11-14
+------------------
+
+Fixes:
+- Fix regression regarding IPython input hook (%gui) integration.
+
+3.0.40: 2023-11-10
+------------------
+
+Fixes:
+- Improved Python 3.12 support (fixes event loop `DeprecationWarning`).
+
+New features:
+- Vi key bindings: `control-t` and `control-d` for indent/unindent in insert
+  mode.
+- Insert partial suggestion when `control+right` is pressed, similar to Fish.
+- Use sphinx-nefertiti theme for the docs.
+
+
+3.0.39: 2023-07-04
+------------------
+
+Fixes:
+- Fix `RuntimeError` when `__breakpointhook__` is called from another thread.
+- Fix memory leak in filters usage.
+- Ensure that key bindings are handled in the right context (when using
+  contextvars).
+
+New features:
+- Accept `in_thread` keyword in `prompt_toolkit.shortcuts.prompt()`.
+- Support the `NO_COLOR` environment variable.
+
+
+3.0.38: 2023-02-28
+------------------
+
+Fixes:
+- Fix regression in filters. (Use of `WeakValueDictionary` caused filters to
+  not be cached).
+
+New features:
+- Use 24-bit true color now by default on Windows 10/11.
+
+
+3.0.37: 2023-02-21
+------------------
+
+Bug fixes:
+- Fix `currentThread()` deprecation warning.
+- Fix memory leak in filters.
+- Make VERSION tuple numeric.
+
+New features:
+- Add `.run()` method in `TelnetServer`. (To be used instead of
+  `.start()/.stop()`.
+
+Breaking changes:
+- Subclasses of `Filter` have to call `super()` in their `__init__`.
+- Drop support for Python 3.6:
+  * This includes code cleanup for Python 3.6 compatibility.
+  * Use `get_running_loop()` instead of `get_event_loop()`.
+  * Use `asyncio.run()` instead of `asyncio.run_until_complete()`.
+
+
 3.0.36: 2022-12-06
 ------------------
 
@@ -305,7 +465,7 @@ Fixes:
 
 Fixes:
 - Fixed a race condition in `ThreadedHistory` that happens when continuously
-  pasting input text (which would continously repopulate the history).
+  pasting input text (which would continuously repopulate the history).
 - Move cursor key mode resetting (for vt100 terminals) to the renderer. (Mostly
   cleanup).
 
@@ -387,7 +547,7 @@ Other changes:
 
 Fixes:
 - Bugfix in shift-selection key bindings.
-- Fix hight calculation of `FormattedTextControl` when line wrapping is turned
+- Fix height calculation of `FormattedTextControl` when line wrapping is turned
   on.
 - Fixes for SSH server:
   * Missing encoding property.
@@ -407,7 +567,7 @@ New features:
   * The color depth logic has been refactored and moved to the `Output`
     implementations. Added `get_default_color_depth` method to `Output`
     objects.
-  * All line feets are now preceded by a carriage return in the telnet
+  * All line feet are now preceded by a carriage return in the telnet
     connection stdout.
 - Introduce `REPLACE_SINGLE` input mode for Vi key bindings.
 - Improvements to the checkbox implementation:
@@ -551,7 +711,7 @@ Bug fixes:
 Bug fixes:
 - Fixes the issue where changes made to the buffer in the accept handler were
   not reflected in the history.
-- Fix in the application invalidate handler. This prevents a significat slow
+- Fix in the application invalidate handler. This prevents a significant slow
   down in some applications after some time (especially if there is a refresh
   interval).
 - Make `print_container` utility work if the input is not a pty.
@@ -818,7 +978,7 @@ Changes:
     of the content. `TokenListControl` (renamed to `FormattedTextControl`) does
     not have an alignment argument anymore.
   * All container objects, like `Window`, got a `style` argument. The style for
-    parent containers propagate to child containers, but can be overriden.
+    parent containers propagate to child containers, but can be overridden.
     This is in particular useful for setting a background color.
   * `FillControl` does not exist anymore. Use the `style` and `char` arguments
     of the `Window` class instead.
@@ -1077,7 +1237,7 @@ Fixes:
 
 New features:
 - Allow users to enter Vi digraphs in reverse order.
-- Improved autocompletion behaviour. See IPython issue #9658.
+- Improved autocompletion behavior. See IPython issue #9658.
 - Added a 'clear' function in the shortcuts module.
 
 For future compatibility:
@@ -1098,7 +1258,7 @@ For future compatibility:
 
 Fixes:
 - Bugfix for Python2 in readline-like completion.
-- Bugfix in readline-like completion visualisation.
+- Bugfix in readline-like completion visualization.
 
 New features:
 - Added `erase_when_done` parameter to the `Application` class.  (This was
@@ -1111,7 +1271,7 @@ New features:
 
 Fixes:
 - Don't select the first completion when `complete_while_typing` is False.
-  (Restore the old behaviour.)
+  (Restore the old behavior.)
 
 
 1.0.1: 2016-06-15
@@ -1263,7 +1423,7 @@ Backwards-incompatible changes:
   the `vi_mode` parameter in `KeyBindingManager`.
 - The default accept_action for the default Buffer in Application now becomes
   IGNORE. This is a much more sensible default. Pass RETURN_DOCUMENT to get
-  the previous behaviour,
+  the previous behavior,
 - Always expect an EventLoop instance in CommandLineInterface. Creating it in
   __init__ caused a memory leak.
 
@@ -1280,8 +1440,8 @@ Fixes:
 - Correctly align right prompt to the top when the left prompt consists of
   multiple lines.
 - Correctly use Token.Transparent as default token for a TokenListControl.
-- Fix in syntax synchronisation. (Better handle the case when no
-  synchronisation point was found.)
+- Fix in syntax synchronization. (Better handle the case when no
+  synchronization point was found.)
 - Send SIGTSTP to the whole process group.
 - Correctly raise on_buffer_changed on all text changes.
 - Fix in regular_languages.GrammarLexer. (Fixes bug in ptipython syntax
@@ -1339,7 +1499,7 @@ New features:
   `create_prompt_layout`.
 - Some improvements to the default style.
 - Also handle Ctrl-R and Ctrl-S in Vi mode when searching.
-- Added TabsProcessor: a tool to visualise tabs instead of displaying ^I.
+- Added TabsProcessor: a tool to visualize tabs instead of displaying ^I.
 - Give a better error message when trying to run in git-bash.
 - Support for ANSI color names in style dictionaries.
 
@@ -1357,7 +1517,7 @@ New features:
     they process one line at a time.)
   - Lexers work differently. `Lexer.lex_document` should now return a function
     that returns the tokens for one line. PygmentsLexer has been optimized that
-    it becomes 'lazy', and it has optional syntax synchronisation. That means,
+    it becomes 'lazy', and it has optional syntax synchronization. That means,
     that the lexer doesn't have to start the lexing at the beginning of the
     document. (Which would be slow for big documents.)
 
@@ -1608,7 +1768,7 @@ New features:
 - Added `prompt_toolkit.layout.utils.iter_token_lines`.
 - Allow `None` values on the focus stack.
 - Buffers can be readonly. Added `IsReadOnly` filter.
-- `eager` behaviour for key bindings. When a key binding is eager it will be
+- `eager` behavior for key bindings. When a key binding is eager it will be
   executed as soon as it's matched, even when there is another binding that
   starts with this key sequence.
 - Custom margins for BufferControl.
@@ -1674,7 +1834,7 @@ Fixes:
 New features:
 - CompletionsMenu got a scroll_offset.
 - Use 256 colors and ANSI sequences when ConEmu ANSI support has been detected.
-- Added PyperclipClipboard for synchronisation with the system clipboard.
+- Added PyperclipClipboard for synchronization with the system clipboard.
   and clipboard parameter in shortcut functions.
 - Filter for enabling/disabling handling of Vi 'v' binding.
 
@@ -1969,7 +2129,7 @@ New features:
 - prompt_toolkit.contrib.shortcuts.get_input has been extended.
 
 Fixed:
-- Behaviour of Control+left/right/up/down.
+- Behavior of Control+left/right/up/down.
 - Backspace in incremental search.
 - Hide completion menu correctly when the cursor position changes.
 
@@ -2044,7 +2204,7 @@ New features:
 - Experimental Win32 support added.
 
 Fixed:
-- Behaviour of 'r' and 'R' key bindings in Vi mode.
+- Behavior of 'r' and 'R' key bindings in Vi mode.
 - Detect multiline correctly for ptpython when there are triple quoted strings.
 - Some other small improvements.
 

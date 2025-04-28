@@ -1,2 +1,6 @@
-Tests: pt
-Depends: @, python3-all, python3-pytest
+Tests:
+ pt,
+Depends:
+ python3-all,
+ python3-pytest,
+ @,

@@ -5,6 +5,7 @@ Simple example of a full screen application with a vertical split.
 This will show a window on the left for user input. When the user types, the
 reversed input is shown on the right. Pressing Ctrl-Q will quit the application.
 """
+
 from prompt_toolkit.application import Application
 from prompt_toolkit.buffer import Buffer
 from prompt_toolkit.key_binding import KeyBindings
@@ -94,7 +95,7 @@ kb = KeyBindings()
 # sure that we won't wait for that key binding to match, but instead execute
 # Ctrl-Q immediately, we can pass eager=True. (Don't make a habit of adding
 # `eager=True` to all key bindings, but do it when it conflicts with another
-# existing key binding, and you definitely want to override that behaviour.
+# existing key binding, and you definitely want to override that behavior.
 
 
 @kb.add("c-c", eager=True)

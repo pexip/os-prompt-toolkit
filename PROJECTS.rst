@@ -37,8 +37,9 @@ Shells:
 - `athenacli <https://github.com/dbcli/athenacli>`_: A CLI for AWS Athena.
 - `vulcano <https://github.com/dgarana/vulcano>`_: A framework for creating command-line applications that also runs in REPL mode.
 - `kafka-shell <https://github.com/devshawn/kafka-shell>`_: A supercharged shell for Apache Kafka.
-- `starterTree <https://github.com/thomas10-10/starterTree>`_: A command launcher organised in a tree structure with fuzzy autocompletion 
+- `starterTree <https://github.com/thomas10-10/starterTree>`_: A command launcher organized in a tree structure with fuzzy autocompletion 
 - `git-delete-merged-branches <https://github.com/hartwork/git-delete-merged-branches>`_: Command-line tool to delete merged Git branches
+- `radian <https://github.com/randy3k/radian>`_: A 21 century R console
 
 Full screen applications:
 
@@ -49,8 +50,9 @@ Full screen applications:
 - `kubeterminal <https://github.com/samisalkosuo/kubeterminal>`_: Kubectl helper tool.
 - `pydoro <https://github.com/JaDogg/pydoro>`_: Pomodoro timer.
 - `sanctuary-zero <https://github.com/t0xic0der/sanctuary-zero>`_: A secure chatroom with zero logging and total transience.
-- `Hummingbot <https://github.com/CoinAlpha/hummingbot>`_: A Cryptocurrency Algorithimic Trading Platform
+- `Hummingbot <https://github.com/CoinAlpha/hummingbot>`_: A Cryptocurrency Algorithmic Trading Platform
 - `git-bbb <https://github.com/MrMino/git-bbb>`_: A `git blame` browser.
+- `ass <https://github.com/mlang/ass>`_: An OpenAI Assistants API client.
 
 Libraries:
 

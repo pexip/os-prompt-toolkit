@@ -50,7 +50,7 @@ in order to make displaying the progress possible:
         yield ...
 
     with ProgressBar() as pb:
-        for i in pb(some_iterable, total=1000):
+        for i in pb(some_iterable(), total=1000):
             time.sleep(.01)
 
 
@@ -127,7 +127,7 @@ Both the title and the labels can be :ref:`formatted text <formatted_text>`.
 Formatting the progress bar
 ---------------------------
 
-The visualisation of a :class:`~prompt_toolkit.shortcuts.ProgressBar` can be
+The visualization of a :class:`~prompt_toolkit.shortcuts.ProgressBar` can be
 customized by using a different sequence of formatters. The default formatting
 looks something like this:
 
@@ -237,7 +237,7 @@ printing text possible while the progress bar is displayed. This ensures that
 printing happens above the progress bar.
 
 Further, when "x" is pressed, we set a cancel flag, which stops the progress.
-It would also be possible to send `SIGINT` to the mean thread, but that's not
+It would also be possible to send `SIGINT` to the main thread, but that's not
 always considered a clean way of cancelling something.
 
 In the example above, we also display a toolbar at the bottom which shows the

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """
-A simple progress bar, visualised with rainbow colors (for fun).
+A simple progress bar, visualized with rainbow colors (for fun).
 """
+
 import time
 
 from prompt_toolkit.output import ColorDepth

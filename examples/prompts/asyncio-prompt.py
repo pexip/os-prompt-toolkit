@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 """
-(Python >= 3.6)
 This is an example of how to prompt inside an application that uses the asyncio
 eventloop. The ``prompt_toolkit`` library will make sure that when other
 coroutines are writing to stdout, they write above the prompt, not destroying
@@ -27,7 +26,7 @@ async def print_counter():
     try:
         i = 0
         while True:
-            print("Counter: %i" % i)
+            print(f"Counter: {i}")
             i += 1
             await asyncio.sleep(3)
     except asyncio.CancelledError:
@@ -61,9 +60,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    try:
-        from asyncio import run
-    except ImportError:
-        asyncio.run_until_complete(main())
-    else:
-        asyncio.run(main())
+    asyncio.run(main())

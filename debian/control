@@ -1,35 +1,35 @@
 Source: prompt-toolkit
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Debian Python Team <team+python@tracker.debian.org>
-XSBC-Pexip-Original-Uploaders: Lennart Weller <lhw@ring0.de>,
-           Gordon Ball <gordon@chronitis.net>,
-           Daniel Baumann <daniel.baumann@progress-linux.org>,
+XSBC-Pexip-Original-Uploaders:
+ Lennart Weller <lhw@ring0.de>,
+ Gordon Ball <gordon@chronitis.net>,
+ Daniel Baumann <daniel.baumann@progress-linux.org>,
 Section: python
 Vcs-Git: https://salsa.debian.org/python-team/packages/prompt-toolkit.git
 Vcs-Browser: https://salsa.debian.org/python-team/packages/prompt-toolkit
 Priority: optional
 Homepage: https://github.com/prompt-toolkit/python-prompt-toolkit
-Build-Depends: debhelper-compat (= 13),
-               dh-python,
-               python3-all,
-               python3-asyncssh <!nocheck>,
-               python3-pytest <!nocheck>,
-               python3-setuptools,
-               python3-wcwidth,
-Standards-Version: 4.6.2
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ python3-all,
+ python3-asyncssh <!nocheck>,
+ python3-pytest <!nocheck>,
+ python3-setuptools,
+ python3-wcwidth,
+Standards-Version: 4.7.0
 Rules-Requires-Root: no
 Testsuite: autopkgtest-pkg-python
 XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: python3-prompt-toolkit
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}
-Breaks: mycli (<< 1.19~),
-        pgcli (<< 2~),
-        python3-ipython (<< 7~),
-        python3-jupyter-console (<< 6~),
-        python3-softlayer (<< 5.8~)
-Recommends: python3-pygments
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Recommends:
+ python3-pygments,
 Description: library for building interactive command lines (Python 3)
  prompt_toolkit is a GNU readline replacement written in pure Python supporting
  advanced features like syntax highlighting, multi line editing and code
