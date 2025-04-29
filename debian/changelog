@@ -1,3 +1,9 @@
+prompt-toolkit (3.0.50-1+pexip25u1) pexip-trixie; urgency=medium
+
+  * Initial trixie build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Tue, 29 Apr 2025 22:50:44 +0100
+
 prompt-toolkit (3.0.50-1) sid; urgency=medium
 
   * Uploading to sid.
